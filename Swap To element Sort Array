@@ -27,6 +27,9 @@ public class SortSwapProblem {
 
     static void sortSwap(int[] arr){
         int x = -1, y = -1;
+        if (arr.length <= 1){
+            return;
+        }
         for (int i = 1; i < arr.length; i++) {
             if (arr[i-1] > arr[i]){
                 if (x == -1){
