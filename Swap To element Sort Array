@@ -1,0 +1,44 @@
+//Question - Given an array where all its element are sorted in increasing order except two swapped element, sort in linear time. Assume there are no duplicates in array
+package SortingAlgorithm;
+
+import java.util.Scanner;
+
+public class SortSwapProblem {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter size of array :");
+        int size = sc.nextInt();
+        int[] arr = new int[size];
+        for (int i = 0; i < size; i++) {
+            arr[i] = sc.nextInt();
+        }
+        System.out.println("original array is");
+        for (int or : arr){
+            System.out.print(or + " ");
+        }
+        System.out.println();
+        sortSwap(arr);
+        System.out.println("After swap array");
+        for (int pr : arr){
+            System.out.print(pr + " ");
+        }
+
+    }
+
+    static void sortSwap(int[] arr){
+        int x = -1, y = -1;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i-1] > arr[i]){
+                if (x == -1){
+                    x = i-1;
+                    y=i;
+                } else {
+                    y = i;
+                }
+            }
+        }
+        int temp = arr[x];
+        arr[x] = arr[y];
+        arr[y] = temp;
+    }
+}
