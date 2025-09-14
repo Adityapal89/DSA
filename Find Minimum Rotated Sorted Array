@@ -1,0 +1,30 @@
+/** A rotated sorted array is a sorted array on which rotation operation has been
+ * performed some number of times. Given a rotated array sorted array, find index
+ * of the minimum element in the array follow 0-based indexing.
+ */
+
+package SearchingAlgorithm;
+
+public class FindMinRotateSortedArray {
+    public static void main(String[] args) {
+        int[] arr = {3,4,5,6,8,9,1,2};
+        System.out.println(findMinRSA(arr));
+    }
+
+    static int findMinRSA(int[] arr){
+        int n = arr.length;
+        int st = 0, end = n-1;
+        int ans = -1;
+        while (st <= end){
+            int mid = st + (end - st)/2;
+            if (arr[mid] <= arr[n-1]){
+                ans = mid;
+                end = mid-1;
+            } else {
+                st = mid + 1;
+            }
+        }
+        return ans;
+    }
+
+}
