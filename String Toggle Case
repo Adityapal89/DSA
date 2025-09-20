@@ -1,0 +1,25 @@
+package StringLecture;
+
+public class ToggleCase {// upperCase to LowerCase and Lower to upper
+
+    public static void main(String[] args) {
+        String s = "HeLLo11 jjJ";
+        System.out.println(toggle(s));
+    }
+    static String toggle(String str){
+        String res = " ";
+        for (int i = 0; i < str.length(); i++) {
+            char c = str.charAt(i);
+            if (Character.isUpperCase(c)){
+                res += Character.toLowerCase(c);
+            } else if (Character.isLowerCase(c)) {
+                res += Character.toUpperCase(c);
+            } else {
+                res += c;
+            }
+        }
+        return res;
+    }
+
+
+}
