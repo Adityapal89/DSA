@@ -1,0 +1,71 @@
+package Stack;
+
+public class StackImplementUsingLinkedList {
+    public static class Node{
+        int data;
+        Node next;
+        Node(int data){
+            this.data = data;
+        }
+    }
+    public static class stack{
+        Node head = null;
+        int size = 0;
+        void push(int x){
+            Node temp = new Node(x);
+            temp.next = head;
+            head = temp;
+            size++;
+        }
+
+        int peek(){
+            if (size <= 0){
+                System.out.println("Not value in stack");
+                return -1;
+            }
+            return head.data;
+        }
+
+        int pop(){
+            if (size <= 0){
+                System.out.println("Not value in stack");
+                return -1;
+            }
+            int x = head.data;
+            head = head.next;
+            size--;
+            return x;
+        }
+
+        void displayRec(Node head){
+            if (head == null) return;
+            displayRec(head.next);
+            System.out.print(head.data + " ");
+        }
+        void display(){
+            Node temp = head;
+            displayRec(temp);
+            System.out.println();
+        }
+
+        void displayRev(){
+            Node temp = head;
+            while (temp != null){
+                System.out.print(temp.data + " ");
+                temp = temp.next;
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        stack st = new stack();
+        st.push(10);
+        st.push(20);
+        st.push(30);
+        st.pop();
+        st.display();
+        System.out.println("Your size is : "+st.size);
+        System.out.println("Peek element is : "+st.peek());
+    }
+}
