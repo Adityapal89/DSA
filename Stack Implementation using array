@@ -1,0 +1,71 @@
+package Stack;
+
+public class StackImplementationUsingArray {
+    public static class stack{
+        int[] arr = new int[5];
+        int idx = 0;
+        void push(int x){
+            if (isFull()){
+                System.out.println("Stack overflow");
+                return;
+            } 
+            arr[idx] = x;
+            idx++;
+        }
+        int peek(){
+            if (idx == 0){
+                System.out.println("Not element is present");
+                return -1;
+            }
+            return arr[idx-1];
+        }
+
+        int pop(){
+            if (idx == 0){
+                System.out.println("Stack is empty");
+                return -1;
+            }
+            int top = arr[idx-1];
+            arr[idx-1] = 0;
+            idx--;
+            return top;
+        }
+        void display(){
+            for (int i = 0; i <= idx-1; i++) {
+                System.out.print(arr[i] + " ");
+            }
+            System.out.println();
+        }
+
+        int size(){
+            return idx;
+        }
+        boolean isEmpty(){
+            if (idx == 0) return true;
+            else return false;
+        }
+
+        boolean isFull(){
+            if (idx == arr.length){
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        stack st = new stack();
+        st.push(10);
+        st.push(20);
+        st.push(30);
+        st.push(40);
+        st.push(50);
+        st.push(60);
+//        System.out.println("Peek element is : "+st.peek());
+        st.display();
+        st.display();
+        System.out.println(st.size());
+
+    }
+}
