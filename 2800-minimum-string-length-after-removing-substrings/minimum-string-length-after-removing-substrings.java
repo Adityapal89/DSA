@@ -1,3 +1,4 @@
+//using read write approach
 class Solution {
     public int minLength(String s) {
         char str[] = s.toCharArray();
