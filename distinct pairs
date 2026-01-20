@@ -1,0 +1,32 @@
+package Hashset.Question;
+import java.util.HashSet;
+import java.util.Map;
+//You are given n distinct pairs. Each pair is numbered from 1 to n. All these pairs are initially put in a bag. 
+// You need to pair up each number. You take numbers one by one from the bag and for each number 
+// you look whether the pair of this number has already been taken out of the bag, 
+// or not. If not (that means the pair of this number is still in the bag), you put the current number on the table in front of him. 
+// Otherwise, you put both numbers from the pair aside. Print the maximum number of numbers that were on the table at the same time.
+
+public class MaxNumberOnTable {
+    public static void main(String[] args) {
+        int[] nums = {1};
+        System.out.println(maxNumberOnTable(nums));
+    }
+
+    static int maxNumberOnTable(int[] nums){
+        HashSet<Integer> st  = new HashSet<>();
+        int max = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int num = nums[i];
+            if (st.contains(num)){
+                st.remove(num);
+            } else {
+                st.add(num);
+                max = Math.max(max,st.size());
+            }
+        }
+        return max;
+
+
+    }
+}
