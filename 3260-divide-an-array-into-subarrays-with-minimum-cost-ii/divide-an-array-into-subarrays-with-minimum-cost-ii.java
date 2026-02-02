@@ -19,8 +19,6 @@ class Solution {
             add(large, nums[i]);
             sizeLarge++;
         }
-
-        // Move smallest k-1 into small
         while (sizeSmall < need) {
             int x = large.firstKey();
             remove(large, x);
@@ -31,13 +29,9 @@ class Solution {
         }
 
         long ans = sumSmall;
-
-        // Slide window
         for (int i = dist + 2; i < n; i++) {
             int out = nums[i - (dist + 1)];
             int in = nums[i];
-
-            // Remove outgoing
             if (small.containsKey(out)) {
                 remove(small, out);
                 sizeSmall--;
@@ -46,35 +40,26 @@ class Solution {
                 remove(large, out);
                 sizeLarge--;
             }
-
-            // Add incoming
             add(large, in);
             sizeLarge++;
-
-            // Fix ordering if needed
             if (sizeSmall > 0 && in < small.lastKey()) {
                 int x = small.lastKey();
                 remove(small, x);
                 sizeSmall--;
                 sumSmall -= x;
-
                 add(large, x);
                 sizeLarge++;
-
                 remove(large, in);
                 sizeLarge--;
                 add(small, in);
                 sizeSmall++;
                 sumSmall += in;
             }
-
             rebalance();
             ans = Math.min(ans, sumSmall);
         }
-
         return base + ans;
     }
-
     private void rebalance() {
         while (sizeSmall > need) {
             int x = small.lastKey();
@@ -85,7 +70,6 @@ class Solution {
             add(large, x);
             sizeLarge++;
         }
-
         while (sizeSmall < need) {
             int x = large.firstKey();
             remove(large, x);
@@ -96,11 +80,9 @@ class Solution {
             sumSmall += x;
         }
     }
-
     private void add(TreeMap<Integer, Integer> map, int x) {
         map.put(x, map.getOrDefault(x, 0) + 1);
     }
-
     private void remove(TreeMap<Integer, Integer> map, int x) {
         map.put(x, map.get(x) - 1);
         if (map.get(x) == 0) map.remove(x);
