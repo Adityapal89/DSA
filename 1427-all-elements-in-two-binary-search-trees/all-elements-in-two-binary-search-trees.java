@@ -1,49 +1,15 @@
 class Solution {
     public void order1(TreeNode root1,List<Integer> st){
-        TreeNode curr = root1;
-        while(curr != null){
-            if(curr.left!=null){
-                TreeNode pred = curr.left;
-                while(pred.right != null && pred.right != curr){
-                    pred = pred.right;
-                }
-                if(pred.right == null){
-                    pred.right = curr;
-                    curr = curr.left;
-                } 
-                if(pred.right == curr){
-                    pred.right = null;
-                    st.add(curr.val);
-                    curr = curr.right;
-                }
-            } else{
-                st.add(curr.val);
-                curr = curr.right;
-            }
-        }
+        if(root1 == null) return;
+        order1(root1.left,st);
+        st.add(root1.val);
+        order1(root1.right,st);
     }
     public void order2(TreeNode root2,List<Integer> st){
-        TreeNode curr = root2;
-        while(curr != null){
-            if(curr.left!=null){
-                TreeNode pred = curr.left;
-                while(pred.right != null && pred.right != curr){
-                    pred = pred.right;
-                }
-                if(pred.right == null){
-                    pred.right = curr;
-                    curr = curr.left;
-                } 
-                if(pred.right == curr){
-                    pred.right = null;
-                    st.add(curr.val);
-                    curr = curr.right;
-                }
-            } else{
-                st.add(curr.val);
-                curr = curr.right;
-            }
-        }
+        if(root2 == null) return;
+        order2(root2.left,st);
+        st.add(root2.val);
+        order2(root2.right,st);
     }
     public List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
         List<Integer> st = new ArrayList<>();
