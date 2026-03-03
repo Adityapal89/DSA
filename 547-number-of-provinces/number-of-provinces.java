@@ -5,12 +5,23 @@ class Solution {
         int count = 0;
         for(int i=0; i<n; i++){
             if(!isVisited[i]){
-                bfs(i,isVisited,isConnected);
+                dfs(i,isVisited,isConnected);
                 count++;
             }
         }
         return count;
     }
+
+    private void dfs(int i, boolean[] isVisited,int[][] isConnected){
+        int n = isConnected.length;
+        isVisited[i] = true;
+        for(int j=0; j<n; j++){
+            if(isConnected[i][j] == 1 && isVisited[j] == false){
+                dfs(j,isVisited,isConnected);
+            }
+        }
+    }
+
 
     private void bfs(int i, boolean[] isVisited,int[][] isConnected){
         int n = isConnected.length;
