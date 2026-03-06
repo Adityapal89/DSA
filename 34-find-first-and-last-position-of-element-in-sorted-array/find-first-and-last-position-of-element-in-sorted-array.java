@@ -9,16 +9,12 @@ class Solution {
                 temp[idx] = i;
                 idx++;
                 break;
-            } else{
-                temp[idx] = -1;
-            }
+            } 
         }
         for(int i=n-1; i>=0; i--){
             if(nums[i] == target){
                 temp[idx] = i;
                 break;
-            } else{
-                temp[idx] = -1;
             }
         }
         return temp;
