@@ -4,7 +4,6 @@ class Solution {
         for (int num : nums) {
             sum += num;
         }
-        int ans = sum % k;
-        return ans;
+        return sum % k;
     }
 }
