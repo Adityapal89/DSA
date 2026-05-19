@@ -15,5 +15,16 @@ class Solution {
             val = val + k;
         }
         return val;
+
+
+        // HashSet<Integer> set = new HashSet<>();
+        // for (int num : nums) {
+        //     set.add(num);
+        // }
+        // for (int multiple = k; ; multiple += k) {
+        //     if (!set.contains(multiple)) {
+        //         return multiple;
+        //     }
+        // }
     }
 }
