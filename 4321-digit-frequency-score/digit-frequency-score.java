@@ -11,7 +11,7 @@ class Solution {
 
         for(int i=0; i<=9; i++){
             if(arr[i] > 0){
-                ans += i * arr[i];
+                ans = ans + i * arr[i];
             }
         }
         return ans;
