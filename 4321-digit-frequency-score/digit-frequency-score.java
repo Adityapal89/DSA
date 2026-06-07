@@ -1,20 +1,29 @@
 class Solution {
     public int digitFrequencyScore(int n) {
-        int[] arr = new int[10];
-        int idx = 0;
-        int ans = 0;
-        while(n > 0){
-            int dig = n%10;
-            arr[dig]++;
-            n /= 10;
-        }
+        // int[] arr = new int[10];
+        // int idx = 0;
+        // int ans = 0;
+        // while(n > 0){
+        //     int dig = n%10;
+        //     arr[dig]++;
+        //     n /= 10;
+        // }
 
-        for(int i=0; i<=9; i++){
-            if(arr[i] > 0){
-                ans = ans + i * arr[i];
-            }
+        // for(int i=0; i<=9; i++){
+        //     if(arr[i] > 0){
+        //         ans = ans + i * arr[i];
+        //     }
+        // }
+        // return ans;
+
+        int sum=0;
+        while(n>0)
+        {
+            int d=n%10;
+            sum+=d;
+            n=n/10;
         }
-        return ans;
+        return sum;
 
     }
 }
