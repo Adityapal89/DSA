@@ -4,8 +4,6 @@ class Solution {
         int wickets = 0;
 
         for (int i = 0; i < events.length; i++) {
-
-            // Innings over
             if (wickets == 10) {
                 break;
             }
