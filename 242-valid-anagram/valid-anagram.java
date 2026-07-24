@@ -9,20 +9,27 @@ class Solution {
 
         HashMap<Character, Integer> mp = new HashMap<>();
         if(s.length() != t.length()) return false;
-        for(int i=0; i<s.length(); i++){
-            char ch = s.charAt(i);
-            mp.put(ch,mp.getOrDefault(ch,0) + 1);
-        }
+        // for(int i=0; i<s.length(); i++){
+        //     char ch = s.charAt(i);
+        //     mp.put(ch,mp.getOrDefault(ch,0) + 1);
+        // }
 
-        for(int i=0; i<t.length(); i++){
-            char ch = t.charAt(i);
-            mp.put(ch,mp.getOrDefault(ch,0) - 1);
-        }
+        // for(int i=0; i<t.length(); i++){
+        //     char ch = t.charAt(i);
+        //     mp.put(ch,mp.getOrDefault(ch,0) - 1);
+        // }
 
-        for(int val : mp.values()){
-            if(val != 0) return false;
-        }
+        // for(int val : mp.values()){
+        //     if(val != 0) return false;
+        // }
 
+        // return true;
+
+
+        int[] f=new int[26];
+        for(char c:s.toCharArray()) f[c-'a']++;
+        for(char c:t.toCharArray()) f[c-'a']--;
+        for(int x:f) if(x!=0) return false;
         return true;
         
     }
