@@ -6,8 +6,8 @@ class Solution {
         }
         double avg = sum/k;
         double ans = avg;
-        for(int i=1; i<nums.length-k+1; i++){
-            sum = sum - nums[i-1] + nums[i+k-1];
+        for(int i=k; i<nums.length; i++){
+            sum = sum - nums[i-k] + nums[i];
             avg = sum/k;
             if(avg > ans){
                 ans = avg;
