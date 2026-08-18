@@ -1,16 +1,16 @@
 class MedianFinder {
-    PriorityQueue<Double> left;
-    PriorityQueue<Double> right;
+    PriorityQueue<Integer> left;
+    PriorityQueue<Integer> right;
     public MedianFinder() {
         left = new PriorityQueue<>(Collections.reverseOrder());
         right = new PriorityQueue<>();
     }
     
     public void addNum(int num) {
-        if(left.size() == 0) left.add((double)num);
+        if(left.size() == 0) left.add(num);
         else{
-            if(num<left.peek()) left.add((double)num);
-            else right.add((double)num);
+            if(num<left.peek()) left.add(num);
+            else right.add(num);
         }
 
         if(left.size() == right.size()+2){
