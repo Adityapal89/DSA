@@ -1,11 +1,11 @@
 class Solution {
     public int arrangeCoins(int n) {
-        long c = 0;
-        int ans = 0;
-        while(c <= n){
-            ans++;
-            c += ans;
+        long coin = 0;
+        int row = 0;
+        while(coin <= n){
+            row++;
+            coin += row;
         }
-        return ans-1;
+        return row-1;
     }
 }
