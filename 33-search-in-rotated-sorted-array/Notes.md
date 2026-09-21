@@ -1,1 +1,1 @@
-<h2>search-in-rotated-sorted-array Notes</h2><hr>[ Time taken: 37m 35s ]
+<h2>search-in-rotated-sorted-array Notes</h2><hr>[ Time taken: 45m 47s ]
